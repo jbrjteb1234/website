@@ -72,11 +72,11 @@
   </h1>
 
   <h2 class="header-subtitle">
-    <span style="color: var(--font-color-blue)"> &gt </span>
+    <span style="color: var(--color-blue)"> &gt </span>
     Aspiring Software Engineer<br>
-    <span style="color: var(--font-color-blue)"> &gt </span>
+    <span style="color: var(--color-blue)"> &gt </span>
     Automotive Enthusiast<br>
-    <span style="color: var(--font-color-blue)"> &gt </span> 
+    <span style="color: var(--color-blue)"> &gt </span> 
     Computer Science Student
   </h2>
 </div>
