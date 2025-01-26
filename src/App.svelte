@@ -1,5 +1,33 @@
 <script>
+  import { onMount } from 'svelte';
+  let headerContainer;
 
+  onMount(() => {
+
+      function handleMouseMove(event){
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+
+        const position = headerContainer.getBoundingClientRect();
+        const containerX = position.left + position.width/2;
+        const containerY = position.top + position.height/2;
+
+        if(headerContainer){
+          const differenceX = (mouseX - containerX)/50;
+          const differenceY = (mouseY - containerY)/50;
+
+          const newX = Math.max(-50, Math.min(50, differenceX)); 
+          const newY = Math.max(-50, Math.min(50, differenceY));
+          
+          headerContainer.style.transform = `translate(${newX}px, ${newY}px)`;
+        }
+
+      }
+
+      window.addEventListener('mousemove', handleMouseMove);
+
+  });
+    
 </script>
 
 <style>
@@ -20,19 +48,29 @@
   }
 
   :global(body) {
-    background-color: var(--color-white)
+    background-color: var(--color-white);
+    min-height: 200vh;
+  }
+
+  .header-top-container{
+    position: absolute; 
+    top: 50%; 
+    left: 10%; 
+    transform: translate(0%, -50%); 
+    width: 420px;
+    height: 420px;
+    background-color: var(--color-grey); 
   }
 
   .header-container{
     display: flex;
-    width: 420px;
-    margin-left: 10%;
-    margin-top: 5%;
+    width: 100%;
+    height: 100%;
     flex-direction: column;
     align-items: center;
     background-color: var(--color-black);
-    box-shadow: 25px 25px 12px 0px rgba(0,0,0,0.75);
   }
+
 
   .header-title {
     font-size: var(--font-size-large);
@@ -40,8 +78,7 @@
     color: var(--color-white);
     letter-spacing: 1.8px;
     text-align: left;
-    margin-top: 5%;
-    padding-left: 5%;
+    margin-left: 10%;
     width: 100%;
     flex: 1;
   }
@@ -52,8 +89,7 @@
     color: var(--color-white);
     font-weight: normal;
     text-align: left;
-    margin-top: 5%;
-    padding-left: 5%;
+    margin-left: 10%;
     width: 100%;
     flex: 1;
   }
@@ -66,17 +102,19 @@
 
 </style>
 
-<div class="header-container">
-  <h1 class="header-title">
-    JAMES<br>BRIGHT
-  </h1>
+<div class="header-top-container">
+  <div bind:this={headerContainer} class="header-container">
+    <h1 class="header-title">
+      JAMES<br>BRIGHT
+    </h1>
 
-  <h2 class="header-subtitle">
-    <span style="color: var(--color-blue)"> &gt </span>
-    Aspiring Software Engineer<br>
-    <span style="color: var(--color-blue)"> &gt </span>
-    Automotive Enthusiast<br>
-    <span style="color: var(--color-blue)"> &gt </span> 
-    Computer Science Student
-  </h2>
+    <h2 class="header-subtitle">
+      <span style="color: var(--color-blue)"> &gt </span>
+      Aspiring Software Engineer<br>
+      <span style="color: var(--color-blue)"> &gt </span>
+      Automotive Enthusiast<br>
+      <span style="color: var(--color-blue)"> &gt </span> 
+      Computer Science Student
+    </h2>
+  </div>
 </div>
