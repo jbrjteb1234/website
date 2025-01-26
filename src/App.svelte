@@ -49,14 +49,37 @@
 
   :global(body) {
     background-color: var(--color-white);
-    min-height: 200vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .scroll-container {
+    height: 100vh;
+    overflow-y: scroll; 
+    scroll-snap-type: y mandatory; 
+  }
+
+  .section {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    scroll-snap-align: start;
+  }
+
+  .section:nth-child(1){
+    display: flex;
+    align-items: center; 
+    height: 100vh;
+    width: 100%;
+    background-color: aliceblue;
+  }
+
+  .section:nth-child(2){
+    background-color: aquamarine;
   }
 
   .header-top-container{
-    position: absolute; 
-    top: 50%; 
-    left: 10%; 
-    transform: translate(0%, -50%); 
+    margin-left: 10%;
     width: 420px;
     height: 420px;
     background-color: var(--color-grey); 
@@ -102,19 +125,27 @@
 
 </style>
 
-<div class="header-top-container">
-  <div bind:this={headerContainer} class="header-container">
-    <h1 class="header-title">
-      JAMES<br>BRIGHT
-    </h1>
+<div class="scroll-container">
+  <div class="section">
+    <div class="header-top-container">
+      <div bind:this={headerContainer} class="header-container">
+        <h1 class="header-title">
+          JAMES<br>BRIGHT
+        </h1>
 
-    <h2 class="header-subtitle">
-      <span style="color: var(--color-blue)"> &gt </span>
-      Aspiring Software Engineer<br>
-      <span style="color: var(--color-blue)"> &gt </span>
-      Automotive Enthusiast<br>
-      <span style="color: var(--color-blue)"> &gt </span> 
-      Computer Science Student
-    </h2>
+        <h2 class="header-subtitle">
+          <span style="color: var(--color-blue)"> &gt </span>
+          Aspiring Software Engineer<br>
+          <span style="color: var(--color-blue)"> &gt </span>
+          Automotive Enthusiast<br>
+          <span style="color: var(--color-blue)"> &gt </span> 
+          Computer Science Student
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+
   </div>
 </div>
