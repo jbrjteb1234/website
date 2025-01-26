@@ -12,13 +12,15 @@
     --font-size-small: 2rem;
     --font-size-text: 1.5rem;
     --font-size-sub-text: 1vw;
-    --font-color-white: rgb(255,255,255);
-    --font-color-blue: rgb(0, 200, 255);
-    --font-color-orange: rgb(255, 170, 0);
+    --color-white: rgb(255,255,255);
+    --color-blue: rgb(0, 200, 255);
+    --color-orange: rgb(255, 170, 0);
+    --color-black: rgb(0,0,0);
+    --color-grey: rgb(60, 60, 60);
   }
 
   :global(body) {
-    background-color: rgb(60, 60, 60);
+    background-color: var(--color-white)
   }
 
   .header-container{
@@ -28,14 +30,14 @@
     margin-top: 5%;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(0,0,0);
+    background-color: var(--color-black);
     box-shadow: 25px 25px 12px 0px rgba(0,0,0,0.75);
   }
 
   .header-title {
     font-size: var(--font-size-large);
     font-family: var(--font-family);
-    color: var(--font-color-white);
+    color: var(--color-white);
     letter-spacing: 1.8px;
     text-align: left;
     margin-top: 5%;
@@ -47,7 +49,7 @@
   .header-subtitle{
     font-size: var(--font-size-text);
     font-family: var(--font-family2);
-    color: var(--font-color-white);
+    color: var(--color-white);
     font-weight: normal;
     text-align: left;
     margin-top: 5%;
@@ -59,7 +61,7 @@
   .description{
     font-size: var(--font-size-small);
     font-family: var(--font-family);
-    color: var(--font-color-white);
+    color: var(--color-white);
   }
 
 </style>
