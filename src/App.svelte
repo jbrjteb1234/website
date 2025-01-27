@@ -10,16 +10,13 @@
 
         const position = headerContainer.getBoundingClientRect();
         const containerX = position.left + position.width/2;
-        const containerY = position.top + position.height/2;
 
         if(headerContainer){
-          const differenceX = (mouseX - containerX)/50;
-          const differenceY = (mouseY - containerY)/50;
+          const differenceX = (mouseX - containerX)/25;
 
           const newX = Math.max(-50, Math.min(50, differenceX)); 
-          const newY = Math.max(-50, Math.min(50, differenceY));
           
-          headerContainer.style.transform = `translate(${newX}px, ${newY}px)`;
+          headerContainer.style.transform = `translate(${newX}px, ${0}px)`;
         }
 
       }
@@ -45,6 +42,7 @@
     --color-orange: rgb(255, 170, 0);
     --color-black: rgb(0,0,0);
     --color-grey: rgb(60, 60, 60);
+    --header-box-height: 380px;
   }
 
   :global(body) {
@@ -72,6 +70,7 @@
     height: 100vh;
     width: 100%;
     background-color: aliceblue;
+    justify-content: space-between;
   }
 
   .section:nth-child(2){
@@ -80,18 +79,23 @@
 
   .header-top-container{
     margin-left: 10%;
-    width: 420px;
-    height: 420px;
+    height: var(--header-box-height);
     background-color: var(--color-grey); 
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex: 0 0 420px;
+    z-index: 5;
   }
 
   .header-container{
     display: flex;
-    width: 100%;
-    height: 100%;
+    width: 110%;
+    height: 110%;
     flex-direction: column;
     align-items: center;
     background-color: var(--color-black);
+    clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
   }
 
 
@@ -103,6 +107,7 @@
     text-align: left;
     margin-left: 10%;
     width: 100%;
+    height: 35%;
     flex: 1;
   }
 
@@ -115,6 +120,19 @@
     margin-left: 10%;
     width: 100%;
     flex: 1;
+  }
+
+  .center-container{
+    flex: 1;
+    width: 100%;
+  }
+
+  .blue-line{
+    width: 100%;
+    background-color: var(--color-blue);
+    transform: translate(0, calc(var(--header-box-height)/2 - 0.05 * var(--header-box-height) - 5px));
+    height: 2px;
+    z-index: 2;
   }
 
   .description{
@@ -132,7 +150,6 @@
         <h1 class="header-title">
           JAMES<br>BRIGHT
         </h1>
-
         <h2 class="header-subtitle">
           <span style="color: var(--color-blue)"> &gt </span>
           Aspiring Software Engineer<br>
@@ -142,6 +159,15 @@
           Computer Science Student
         </h2>
       </div>
+    </div>
+
+    <div class="center-container">
+      <div class="blue-line">
+      </div>  
+    </div>
+
+    <div class="link-bar">
+
     </div>
   </div>
 
