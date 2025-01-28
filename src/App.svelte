@@ -127,14 +127,6 @@
     width: 100%;
   }
 
-  .blue-line{
-    width: 100%;
-    background-color: var(--color-blue);
-    transform: translate(0, calc(var(--header-box-height)/2 - 0.05 * var(--header-box-height) - 5px));
-    height: 2px;
-    z-index: 2;
-  }
-
   .description{
     font-size: var(--font-size-small);
     font-family: var(--font-family);
@@ -162,8 +154,6 @@
     </div>
 
     <div class="center-container">
-      <div class="blue-line">
-      </div>  
     </div>
 
     <div class="link-bar">
