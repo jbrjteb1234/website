@@ -49,6 +49,7 @@
     background-color: var(--color-white);
     margin: 0;
     padding: 0;
+    overflow: hidden;
   }
 
   .scroll-container {
@@ -57,7 +58,20 @@
     scroll-snap-type: y mandatory; 
   }
 
+  .border {
+    position: absolute;
+    height: calc(100% - 5vh); 
+    width: calc(100% - 5vh); 
+    margin-left: 2.5vh;
+    margin-top: 2.5vh;
+    border-radius: 20px;
+    box-shadow: inset 0 0 0 2px var(--color-black); 
+    background-color: transparent;
+    pointer-events: none; 
+  }
+
   .section {
+    position: relative;
     height: 100vh;
     width: 100%;
     overflow: hidden;
@@ -137,6 +151,7 @@
 
 <div class="scroll-container">
   <div class="section">
+    <div class="border"></div>
     <div class="header-top-container">
       <div bind:this={headerContainer} class="header-container">
         <h1 class="header-title">
@@ -162,6 +177,6 @@
   </div>
 
   <div class="section">
-
+    <div class="border"></div>
   </div>
 </div>
