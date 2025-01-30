@@ -49,12 +49,13 @@
   }
 
   .section:nth-child(1){
+    position: relative;
     display: flex;
     align-items: center; 
     height: 100vh;
     width: 100%;
     background-color: rgb(0, 25, 75);
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .section:nth-child(2){
@@ -68,6 +69,7 @@
     flex-direction: column;
     align-items: center;
     margin-left: 5%;
+    z-index: 5;
   }
 
 
@@ -104,3 +106,15 @@
     font-family: var(--font-family);
     color: var(--color-white);
   }
+
+  .haze {
+    position: absolute;
+    width: 220%;
+    height: 200%;
+    bottom: -100%;
+    left: auto;
+    right: -110%;
+    background: radial-gradient(circle, rgba(235, 235, 255, .3) 20%, rgba(0, 25, 75) 100%);
+    pointer-events: none; 
+    z-index: 0;
+}
